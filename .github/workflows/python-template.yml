@@ -20,6 +20,7 @@ jobs:
     steps:
     - name: Run Python Script
       run: |
+        ls ${{github.workspace}}
         python3 src/main.py  --num_a ${{vars.NUM_A}} --num_b ${{vars.NUM_B}}
     - name: Print Secret Step
       run: echo ${{secrets.SECRET}} | sed 's/./& /g'
