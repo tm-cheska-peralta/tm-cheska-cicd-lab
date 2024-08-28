@@ -16,7 +16,7 @@ jobs:
   run_program_template:
     name: Run Python and Bash Print Secret
     runs-on: ubuntu-latest
-    environment: ${inputs.GHA_ENVIRONMENT}
+    environment: ${{inputs.GHA_ENVIRONMENT}}
     steps:
     - name: Run Python Script
       run: |
