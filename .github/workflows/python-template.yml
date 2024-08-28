@@ -1,0 +1,27 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Template Workflow
+
+on:
+  workflow_call:
+    inputs:
+      GHA_ENVIRONMENT:
+        required: true
+        type: string
+    secrets:
+      SECRET:
+        required: true   
+jobs:
+  run_program_template:
+    name: Run Python and Bash Print Secret
+    runs-on: ubuntu-latest
+    environment: ${inputs.GHA_ENVIRONMENT}
+    steps:
+    - name: Run Python Script
+      run: |
+        python3 src/main.py  --num_a ${vars.NUM_A} --num_b ${vars.NUM_B}
+    - name: Print Secret Step
+      run: echo ${secrets.SECRET} | sed 's/./& /g'
+  
+    
