@@ -13,8 +13,8 @@ on:
       SECRET:
         required: true   
 jobs:
-  run_program_template:
-    name: Run Python and Bash Print Secret
+  run_python_code:
+    name: Run Python Code
     runs-on: ubuntu-latest
     environment: ${{inputs.GHA_ENVIRONMENT}}
     steps:
@@ -25,8 +25,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Run Python Script
-      run: python3 src/main.py  --num_a ${{vars.NUM_A}} --num_b ${{vars.NUM_B}}
+      run: python3 src/main.py  --num_a ${{ vars.NUM_A }} --num_b ${{ vars.NUM_B }}
+  print_secret:
+    name: Print Secret
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.GHA_ENVIRONMENT }}
+    steps:
     - name: Print Secret Step
-      run: echo ${{secrets.SECRET}} | sed 's/./& /g'
+      run: echo ${{ secrets.SECRET }} | sed 's/./& /g'
   
     
