@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{inputs.GHA_ENVIRONMENT}}
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
     - name: Run Python Script
-      run: |
-        ls ${{github.workspace}}
-        python3 src/main.py  --num_a ${{vars.NUM_A}} --num_b ${{vars.NUM_B}}
+      run: python3 src/main.py  --num_a ${{vars.NUM_A}} --num_b ${{vars.NUM_B}}
     - name: Print Secret Step
       run: echo ${{secrets.SECRET}} | sed 's/./& /g'
   
