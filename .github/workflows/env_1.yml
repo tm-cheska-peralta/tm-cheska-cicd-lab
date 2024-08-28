@@ -22,4 +22,6 @@ jobs:
     uses: ./.github/workflows/python-template.yml
     with:
       GHA_ENVIRONMENT: tm-cicd-lab-env-1
+    secrets:
+      SECRET: ${{secrets.SECRET}}
       
