@@ -19,7 +19,7 @@ jobs:
   test_env_1:
     name: "Run on Env 1"
     needs: build
-    uses: ./.github/workflows/python-template.yaml
+    uses: ./.github/workflows/templates/python-template.yaml
     with:
       GHA_ENVIRONMENT: tm-cicd-lab-env-1
       
