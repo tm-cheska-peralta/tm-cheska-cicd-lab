@@ -4,7 +4,6 @@ on:
 jobs:
   test:
     name: "Run on Env 1"
-    needs: build
     uses: ./.github/workflows/python-template.yml
     with:
       GHA_ENVIRONMENT: tm-cicd-lab-env-1
